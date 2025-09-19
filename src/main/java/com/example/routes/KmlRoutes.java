@@ -25,12 +25,12 @@ public class KmlRoutes extends RouteBuilder {
                 String timestamp = LocalDateTime.now()
                         .format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
-                return String.format("""
+                String dynamic = String.format("""
                     <?xml version="1.0" encoding="UTF-8"?>
                     <kml xmlns="http://www.opengis.net/kml/2.2">
                       <Document>
                         <Folder>
-                        <name>someName</name>
+                        <name> someName</name>
                         <Placemark id="pm123">
                           <name>Dynamic Point 1 (%s)</name>
                           <description>This point updates every 10 seconds</description>
@@ -50,6 +50,30 @@ public class KmlRoutes extends RouteBuilder {
                     </kml>
                     """, timestamp, baseLon + offset, baseLat + offset,
                          timestamp, baseLon + offset + 0.01, baseLat + offset);
+                   String nothing = """
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <kml xmlns="http://www.opengis.net/kml/2.2">
+                      <Document>
+                        <Folder>
+                        <name> someName</name>
+                        </Folder>
+                      </Document>
+                    </kml>
+                       """;
+                this.updateCounter+=1;
+                if(this.updateCounter < 3) {
+                  System.out.println("over 3 Counter: " + this.updateCounter);
+                  return dynamic;
+                }
+                else if(this.updateCounter > 6) {
+                  System.out.println("over 6 Counter: " + this.updateCounter);
+                    this.updateCounter = 0;
+                    return nothing;
+                }
+                else {
+                    return dynamic;
+                }
+
 
             })
             .setHeader("Content-Type", constant("application/vnd.google-earth.kml+xml"));

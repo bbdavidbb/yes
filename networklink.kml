@@ -9,7 +9,7 @@
   <Link>
     <href>http://localhost:8080/Point.kml</href>
     <refreshMode>onInterval</refreshMode>
-    <refreshInterval>3</refreshInterval>
+    <refreshInterval>5</refreshInterval>
   </Link>
 </NetworkLink>
 <NetworkLink>
