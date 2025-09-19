@@ -29,6 +29,8 @@ public class KmlRoutes extends RouteBuilder {
                     <?xml version="1.0" encoding="UTF-8"?>
                     <kml xmlns="http://www.opengis.net/kml/2.2">
                       <Document>
+                        <Folder>
+                        <name>someName</name>
                         <Placemark id="pm123">
                           <name>Dynamic Point 1 (%s)</name>
                           <description>This point updates every 10 seconds</description>
@@ -43,6 +45,7 @@ public class KmlRoutes extends RouteBuilder {
                             <coordinates>%.6f,%.6f,0</coordinates>
                           </Point>
                         </Placemark>
+                        </Folder>
                       </Document>
                     </kml>
                     """, timestamp, baseLon + offset, baseLat + offset,
