@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
 <NetworkLink>
-  <name>Spring Boot KML NetworkLink</name>
-  <description>Dynamic KML content from Spring Boot application</description>
+  <name>PointLink</name>
+  <description>PointLink from Spring Boot application</description>
   <refreshVisibility>1</refreshVisibility>
   <flyToView>1</flyToView>
   <Link>
     <href>http://localhost:8080/Point.kml</href>
     <refreshMode>onInterval</refreshMode>
-    <refreshInterval>10</refreshInterval>
+    <refreshInterval>3</refreshInterval>
   </Link>
 </NetworkLink>
+<NetworkLink>
+  <name>StaticPointLink</name>
+  <description>StaticPointLink from Spring Boot application</description>
+  <Link>
+    <href>http://localhost:8080/StaticPoint.kml</href>
+    <refreshMode>onInterval</refreshMode>
+    <refreshInterval>3</refreshInterval>
+  </Link>
+</NetworkLink>
+</Document>
 </kml>
