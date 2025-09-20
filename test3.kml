@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+     xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+  <!-- Define a custom style -->
+  <Style id="red-dot">
+    <IconStyle>
+      <color>ff0000ff</color> <!-- Red (AABBGGRR format) -->
+      <scale>1.2</scale>       <!-- Slightly larger than default -->
+      <Icon>
+        <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>0.9</scale> <!-- Smaller label -->
+    </LabelStyle>
+  </Style>
+
+  <!-- Example Point with the custom style -->
+  <Placemark>
+    <name>Styled Point 1</name>
+    <styleUrl>#red-dot</styleUrl>
+    <Point>
+      <gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+      <coordinates>146.825,12.233,400</coordinates>
+    </Point>
+  </Placemark>
+
+  <Placemark>
+    <name>Styled Point 2</name>
+    <styleUrl>#red-dot</styleUrl>
+    <Point>
+      <gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+      <coordinates>146.820,12.222,400</coordinates>
+    </Point>
+  </Placemark>
+  </Document>
+</kml>
